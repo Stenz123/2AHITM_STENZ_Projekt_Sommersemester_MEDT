@@ -1,0 +1,79 @@
+GET http://localhost:3000/api/quizz HTTP/1.1
+
+###
+
+GET http://localhost:3000/api/quizz/1
+
+###
+GET http://localhost:3000/api/quizz/length
+
+###
+
+POST http://localhost:3000/api/quizz HTTP/1.1
+content-type: application/json
+
+{
+    "data": {
+        "quizName": "Multiplication",
+        "questions": [
+            {
+            "question": "12",
+            "answers": [
+                {
+                "text": "6*2",
+                "isCorrect": true
+                },
+                {
+                "text": "5*3",
+                "isCorrect": false
+                }
+            ]
+            },{
+            "question": "4",
+            "answers": [
+                {
+                "text": ".5*8",
+                "isCorrect": true
+                },
+                {
+                "text": "2*3",
+                "isCorrect": false
+                }
+            ]
+            }
+        ]
+    }
+}
+
+###
+
+POST http://localhost:3000/api/quizz HTTP/1.1
+content-type: application/json
+
+{
+    "data": {
+		"quizName": "new Quiz",
+		"questions": [
+			{
+				"question": "2",
+				"answers": [
+					{
+						"text": "2",
+						"isCorrect": true
+					},
+					{
+						"text": "4",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	}
+}
+
+###
+
+DELETE http://localhost:3000/api/quizz/3 HTTP/1.1
+
+###
+DELETE http://localhost:3000/api/quizz/ HTTP/1.1

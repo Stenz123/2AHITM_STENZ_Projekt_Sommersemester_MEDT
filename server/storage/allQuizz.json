@@ -1,0 +1,146 @@
+[
+	{
+		"quizName": "new Quiz",
+		"questions": [
+			{
+				"question": "2",
+				"answers": [
+					{
+						"text": "2",
+						"isCorrect": true
+					},
+					{
+						"text": "4",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "Alphabet",
+		"questions": [
+			{
+				"question": "ABC_DEF",
+				"answers": [
+					{
+						"text": "R",
+						"isCorrect": false
+					},
+					{
+						"text": "E",
+						"isCorrect": false
+					},
+					{
+						"text": "D",
+						"isCorrect": true
+					},
+					{
+						"text": "P",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "My New QUiz",
+		"questions": [
+			{
+				"question": "1+1",
+				"answers": [
+					{
+						"text": "5",
+						"isCorrect": false
+					},
+					{
+						"text": "2",
+						"isCorrect": true
+					},
+					{
+						"text": "8",
+						"isCorrect": false
+					},
+					{
+						"text": "1520",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "Multiplication",
+		"questions": [
+			{
+				"question": "12",
+				"answers": [
+					{
+						"text": "6*2",
+						"isCorrect": true
+					},
+					{
+						"text": "5*3",
+						"isCorrect": false
+					}
+				]
+			},
+			{
+				"question": "4",
+				"answers": [
+					{
+						"text": ".5*8",
+						"isCorrect": true
+					},
+					{
+						"text": "2*3",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "ABC Quiz 2",
+		"questions": [
+			{
+				"question": "LMN_P",
+				"answers": [
+					{
+						"text": "R",
+						"isCorrect": false
+					},
+					{
+						"text": "O",
+						"isCorrect": true
+					},
+					{
+						"text": "F",
+						"isCorrect": false
+					},
+					{
+						"text": "Ö",
+						"isCorrect": false
+					}
+				]
+			},
+			{
+				"question": "X_Z",
+				"answers": [
+					{
+						"text": "V",
+						"isCorrect": false
+					},
+					{
+						"text": "R",
+						"isCorrect": false
+					},
+					{
+						"text": "Y",
+						"isCorrect": true
+					}
+				]
+			}
+		]
+	}
+]

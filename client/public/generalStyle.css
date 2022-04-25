@@ -1,0 +1,51 @@
+:root {
+    --main-background-color:#ededed;
+    --accent-color:#639aff;
+    --accent-color-ligt:#82aeff;
+    
+    --green-color:#50e669;
+    --gray-color:#8f8f8f;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    margin: 0;
+}
+
+header{
+    height: 9vh;
+    padding: 1%;
+    background-color: var(--main-background-color);
+    box-shadow: 0 1vh 10px rgba(143, 143, 143, .4);
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+header img, header a{
+    height: 100%;
+}
+main{
+    padding: 1%;
+    padding-top: 3%;
+}
+
+
+
+/******Buttons******/
+.buttonBigBlue, .buttonBigGreen{
+    font-size: 100%;
+    color: #fff;
+    border: 0;
+    padding: 2%;
+    padding-left: 8%;
+    padding-right: 8%;
+    margin: .5%;
+    border-radius: 50px;
+}
+.buttonBigBlue{background-color: var(--accent-color);}
+.buttonBigGreen{background-color: var(--green-color);}
+.buttonBig:hover{
+    background-color: var(--accent-color-ligt);
+    color: var(--main-background-color);
+}

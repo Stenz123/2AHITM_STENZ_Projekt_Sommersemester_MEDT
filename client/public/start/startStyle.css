@@ -1,0 +1,91 @@
+:root {
+    --main-background-color:#ededed;
+    --accent-color:#639aff;
+    --accent-color-ligt:#82aeff;
+    
+    --green-color:#50e669;
+    --gray-color:#8f8f8f;
+}
+
+/***********************/
+#dailyQuizBox, #challangeFriendsBox{
+    background-color: var(--main-background-color);
+    width: 96%;
+    height: 30vh;
+    margin: 2%;
+    display: flex;
+    border-radius: 5px;
+}
+/**Left**/
+#dailyQuizBoxLeft{
+    background-image: url("../img/quizBackground.jpg");
+    background-size: cover;
+    width: 50%;
+}
+#dailyQuizBoxLeftChild{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, .5);
+    height: 93%;
+    width: 92%;
+    padding: 4%;
+}
+#dailyQuizBox h3, #dailyQuizBox h4,#dailyQuizBox p{
+    margin: 0;
+    color: #fff;
+}
+#dailyQuizBoxLeft h3, #dailyQuizBoxLeft p{
+    margin-bottom: 7%;
+}
+/**RIGHT**/
+#dailyQuizBoxRight{
+    padding: 2%;
+    width: 50%;
+}
+#dailyQuizBoxRight p{
+    color: #000;
+    font-size: 1.5rem;
+}
+#dailyQuizBoxRight > p{
+    padding-bottom: 5%;
+}
+/**challangeFriendsBox**/
+#challangeFriendsBox{
+    padding: 3%;
+    display: block;
+    width: 90%;
+}
+#challangeFriendsBoxOnline{
+    height: 70%;
+    width: 100%;
+    background-color: #fff;
+    overflow: scroll;
+}
+#challangeFriendsBox .userCard{
+    height: 5vh;
+}
+
+
+/**UserCard**/
+.userCard{
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px #000 solid;
+    border-bottom: 1px #000 solid;
+}
+.userCard > div{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.userCard img{
+    height: 100%;
+}
+.userCard .name{
+    padding-left: 2%;
+}
+
+/***********************/

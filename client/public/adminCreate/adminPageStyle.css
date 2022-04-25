@@ -1,0 +1,16 @@
+
+button{
+    background-color: #fff;
+    border-color: #000;
+}
+button:hover{
+    background-color: #ececec;
+}
+
+.createContainer{
+    display: flex;
+}
+.button{
+    border: 1px #000 solid;
+    width: fit-content;
+}
