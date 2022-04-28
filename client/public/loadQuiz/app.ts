@@ -1,9 +1,13 @@
+import { strictEqual } from "assert";
 import { Quiz } from "../adminCreate/interfaces"
 
 const SERVERIP:string = "localhost:3000"
+const START_URL:string = "localhost:3050/start"
+
 const url = window.location.href
 
-let questionCounter = -1;
+let questionCounter = 0;
+let score = 0;
 
 //console.log(Number(getAllUrlParams(url).index));
 
@@ -25,8 +29,6 @@ async function load(){
     return
   }
   
-  questionCounter++
-  
   document.body.innerHTML=`
   <div id="quiz">
     <h1>${json.quizName}</h1>
@@ -39,9 +41,46 @@ async function load(){
   for(let i = 0; i < json.questions[questionCounter].answers.length; i++){
     document.getElementById("grid").innerHTML+=`
     <div class="answer"><p>${json.questions[questionCounter].answers[i].text}</p></div>`
-  }
+    let answerElements = document.getElementsByClassName("answer")
+    for(let i = 0; i < answerElements.length; i++){
+      answerElements[i].addEventListener("click", function(){
+      nextQuestionScreen(i,json)
+    })
+    }
+  }  
 }
 
+
+function nextQuestionScreen(index:number, json:Quiz){
+  console.log("segxdrcfhvbkl");
+  
+  for(let i = 0; i < json.questions[questionCounter].answers.length; i++){
+    if(json.questions[questionCounter].answers[i].isCorrect){
+      (<HTMLDivElement>document.getElementsByClassName("answer")[i]).style.backgroundColor="#86fc0f"
+    }else{
+      (<HTMLDivElement>document.getElementsByClassName("answer")[i]).style.backgroundColor="#ad1515"
+    }
+  }
+  if(json.questions[questionCounter].answers[index].isCorrect){
+    score++
+    document.getElementById("quiz").style.background="#29ad15"
+  }
+  document.getElementById("quiz").innerHTML+=`<button id="next">Next</button>`
+  
+  if(questionCounter<json.questions.length-1){
+    questionCounter++
+    document.getElementById("next").addEventListener("click",load)
+  }
+  else {
+    document.getElementById("next").addEventListener("click",function(){
+      score=10*score/json.questions.length
+      document.body.innerHTML=`<p>Score: ${score}</p><button id="returnHome">Home</button>`
+      document.getElementById("returnHome").addEventListener("click",function() {
+        location.assign(`http://${START_URL}`)
+      })
+    })
+  }
+}
 
 interface ReturnObj {
     [key: string]: any
