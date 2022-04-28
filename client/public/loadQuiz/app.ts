@@ -1,11 +1,47 @@
-import { url } from "inspector";
+import { Quiz } from "../adminCreate/interfaces"
 
-try {
-    let temp : any = getAllUrlParams(url).index;
-    console.log(temp)
-} catch (error) {
+const SERVERIP:string = "localhost:3000"
+const url = window.location.href
+
+let questionCounter = -1;
+
+//console.log(Number(getAllUrlParams(url).index));
+
+load()
+async function load(){
+  let id:number = Number(getAllUrlParams(url).index)
+  if(id === NaN ){
+    console.log("400: Wrong Parameter")
+    document.body.innerHTML="400: Wrong Parameter"
+    return
+  }
+  let json:Quiz
+  try {
+    let response:Response = await fetch(`http://${SERVERIP}/api/quizz/${id}`)
+    json = await response.json()
+  } catch (error) {
     console.log(error);
+    document.body.innerHTML="404: Not Found"
+    return
+  }
+  
+  questionCounter++
+  
+  document.body.innerHTML=`
+  <div id="quiz">
+    <h1>${json.quizName}</h1>
+      <div>
+        <h2>${json.questions[questionCounter].question}</h2>
+        <div id="grid"></div>
+    </div>
+  </div>
+  `
+  for(let i = 0; i < json.questions[questionCounter].answers.length; i++){
+    document.getElementById("grid").innerHTML+=`
+    <div class="answer"><p>${json.questions[questionCounter].answers[i].text}</p></div>`
+  }
 }
+
 
 interface ReturnObj {
     [key: string]: any

@@ -1,0 +1,19 @@
+#quiz{
+    background-color: aqua;
+    margin: 3%;
+    height: 50vh;
+    padding: 1%;
+    padding-top: 0;
+}
+#grid{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+#grid div{
+    background-color: violet;
+    padding: 2%;
+    margin: 2%;
+}
+h1{
+    margin: 0;
+}
