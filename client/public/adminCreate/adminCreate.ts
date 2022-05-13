@@ -1,5 +1,9 @@
 import { Quiz, Question, Answer } from "./interfaces";
 
+if(false){
+    location.assign(`http://localhost:3050/adminLogin`);
+}
+
 const QUIZ_SAVE_DIRECTORY:string = "../quizzes/quizzes.json"
 const MAX_QUESTIONS:number = 4
 

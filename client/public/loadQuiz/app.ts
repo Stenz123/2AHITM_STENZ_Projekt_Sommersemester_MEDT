@@ -1,4 +1,3 @@
-import { strictEqual } from "assert";
 import { Quiz } from "../adminCreate/interfaces"
 
 const SERVERIP:string = "localhost:3000"
@@ -8,8 +7,6 @@ const url = window.location.href
 
 let questionCounter = 0;
 let score = 0;
-
-//console.log(Number(getAllUrlParams(url).index));
 
 load()
 async function load(){
@@ -64,7 +61,7 @@ function nextQuestionScreen(index:number, json:Quiz){
   if(json.questions[questionCounter].answers[index].isCorrect){
     score++
     document.getElementById("quiz").style.background="#29ad15"
-  }
+  }else document.getElementById("quiz").style.background="#d11137"
   document.getElementById("quiz").innerHTML+=`<button id="next">Next</button>`
   
   if(questionCounter<json.questions.length-1){
@@ -74,7 +71,7 @@ function nextQuestionScreen(index:number, json:Quiz){
   else {
     document.getElementById("next").addEventListener("click",function(){
       score=10*score/json.questions.length
-      document.body.innerHTML=`<p>Score: ${score}</p><button id="returnHome">Home</button>`
+      document.body.innerHTML=`<p>Score: ${score}/10</p><button id="returnHome">Home</button>`
       document.getElementById("returnHome").addEventListener("click",function() {
         location.assign(`http://${START_URL}`)
       })

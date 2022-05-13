@@ -11,7 +11,7 @@
 #dailyQuizBox, #challangeFriendsBox{
     background-color: var(--main-background-color);
     width: 96%;
-    height: 30vh;
+    height:30vh;
     margin: 2%;
     display: flex;
     border-radius: 5px;
@@ -27,9 +27,8 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: rgba(0, 0, 0, .5);
-    height: 93%;
-    width: 92%;
-    padding: 4%;
+    height: 28vh;
+    padding: 1vh;
 }
 #dailyQuizBox h3, #dailyQuizBox h4,#dailyQuizBox p{
     margin: 0;

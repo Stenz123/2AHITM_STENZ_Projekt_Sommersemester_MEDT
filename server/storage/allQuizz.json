@@ -142,5 +142,208 @@
 				]
 			}
 		]
-	}
+	},
+	{
+		"quizName": "Series Quiz",
+		"questions": [
+			{
+				"question": "How many seasons has TBBT?",
+				"answers": [
+					{
+						"text": "18",
+						"isCorrect": false
+					},
+					{
+						"text": "8",
+						"isCorrect": false
+					},
+					{
+						"text": "5",
+						"isCorrect": false
+					},
+					{
+						"text": "12",
+						"isCorrect": true
+					}
+				]
+			},
+			{
+				"question": "How many seasons has the IT Crowd ",
+				"answers": [
+					{
+						"text": "5",
+						"isCorrect": false
+					},
+					{
+						"text": "8",
+						"isCorrect": false
+					},
+					{
+						"text": "4",
+						"isCorrect": true
+					},
+					{
+						"text": "10",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "Butter Quiz",
+		"questions": [
+			{
+				"question": "Was ist auf einem Butterbrot",
+				"answers": [
+					{
+						"text": "Butter",
+						"isCorrect": true
+					},
+					{
+						"text": "Käse",
+						"isCorrect": false
+					},
+					{
+						"text": "Schiken",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "Gewürz Quiz",
+		"questions": [
+			{
+				"question": "Was smeckt nach Pfeffer",
+				"answers": [
+					{
+						"text": "Pfeffer",
+						"isCorrect": true
+					},
+					{
+						"text": "Salz",
+						"isCorrect": false
+					}
+				]
+			},
+			{
+				"question": "Mit was würzt man ein stake",
+				"answers": [
+					{
+						"text": "Karotten",
+						"isCorrect": false
+					},
+					{
+						"text": "Vorhänge",
+						"isCorrect": false
+					},
+					{
+						"text": "Pfeffer",
+						"isCorrect": true
+					},
+					{
+						"text": "Salz",
+						"isCorrect": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "Number Quiz",
+		"questions": [
+			{
+				"question": "",
+				"answers": [
+					{
+						"text": "",
+						"isCorrect": false
+					},
+					{
+						"text": "",
+						"isCorrect": false
+					},
+					{
+						"text": "",
+						"isCorrect": false
+					},
+					{
+						"text": "",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "Number Quiz",
+		"questions": [
+			{
+				"question": "",
+				"answers": [
+					{
+						"text": "",
+						"isCorrect": false
+					},
+					{
+						"text": "",
+						"isCorrect": false
+					},
+					{
+						"text": "",
+						"isCorrect": false
+					},
+					{
+						"text": "",
+						"isCorrect": false
+					}
+				]
+			},
+			{
+				"question": "1+1",
+				"answers": [
+					{
+						"text": "2",
+						"isCorrect": true
+					},
+					{
+						"text": "5",
+						"isCorrect": false
+					},
+					{
+						"text": "841",
+						"isCorrect": false
+					},
+					{
+						"text": "12",
+						"isCorrect": false
+					}
+				]
+			},
+			{
+				"question": "x²=36",
+				"answers": [
+					{
+						"text": "-36",
+						"isCorrect": true
+					},
+					{
+						"text": "15",
+						"isCorrect": false
+					},
+					{
+						"text": "36",
+						"isCorrect": true
+					},
+					{
+						"text": "1850",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	null
 ]

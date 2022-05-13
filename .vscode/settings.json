@@ -1,0 +1,8 @@
+{
+    "files.autoSave": "onWindowChange",
+    "files.exclude": {
+        "**/*.js.map": true,
+        "**/*.js": true,
+        "**/node_modules":true
+    }
+}
