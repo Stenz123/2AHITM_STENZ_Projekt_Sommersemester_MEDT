@@ -30,11 +30,9 @@ adminRouter.get("/compareToken/",function(request,response){
   
   if(request.cookies.token1===token){
     console.log("tedfbrsvf")
-    response.status(StatusCodes.OK).send("CORRECT")
+    response.status(StatusCodes.OK).send("OK")
   }
   response.status(StatusCodes.FORBIDDEN).send("Acces denied")
-  
-  
 })
 
 let token
@@ -45,13 +43,3 @@ setInterval(newToken,86400000)
 function newToken(){
   token= tokgen.generate();
 }
-
-/*hashTest()
-async function hashTest() {
-  let hashPw =await hash("admin",10)
-  console.log(hashPw);
-  if(await compare("admin",adminHash)){
-    console.log("YES");
-    
-  }
-}*/

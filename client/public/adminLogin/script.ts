@@ -2,7 +2,6 @@ let submitButtonId = document.getElementById("submitButton")
 let passwordId:HTMLInputElement = <HTMLInputElement>document.getElementById("password")
 let userId:HTMLInputElement = <HTMLInputElement>document.getElementById("user")
 
-setCookie("token","5",.01)
 submitButtonId.addEventListener("click",async function(){
   let password = passwordId.value
   let user = userId.value
@@ -16,8 +15,8 @@ submitButtonId.addEventListener("click",async function(){
         password:password
       })
     })
-    console.log(getCookie("token"));
-    
+    console.log(getCookie("token1"));
+    location.assign(`http://localhost:3050/adminCreaten`);
 })
 
 
@@ -32,7 +31,7 @@ function setCookie(name,value,days) {
 }
 function getCookie(name) {
     var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
+    var ca = document.cookie.split(';') ;
     for(var i=0;i < ca.length;i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1,c.length);

@@ -1,12 +1,11 @@
 import { Quiz, Question, Answer } from "./interfaces";
 
+start()
 async function start() {
-    let response = await fetch("http://localhost:3050/verify/compareToken")    
-    
-}
-
-if(false){
-    location.assign(`http://localhost:3050/adminLogin`);
+    let response = await (await fetch("http://localhost:3050/verify/compareToken")).text()
+    if(response!=="OK"){
+        location.assign(`http://localhost:3050/adminLogin`);
+    }
 }
 
 const QUIZ_SAVE_DIRECTORY:string = "../quizzes/quizzes.json"

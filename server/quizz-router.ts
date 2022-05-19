@@ -9,17 +9,28 @@ export const quizzRouter = express.Router()
 const allQuizPath:string = "./storage/allQuizz.json"
 
 quizzRouter.get("/",async function(request,response){
+    if(!await checkToken()){
+        console.log("noAcces");
+        return  
+    }
     let cache =  await readJsonFile(allQuizPath)
     response.json(cache)
 })
 quizzRouter.get("/length",async function(request,response){
+    if(!await checkToken()){
+        console.log("noAcces");
+        return
+    }
     let cache: Quiz[]|undefined=  await readJsonFile(allQuizPath)
     if(cache==undefined) response.status(StatusCodes.OK).send("0")
     else response.status(StatusCodes.OK).send(String(cache.length))
 })
 
 quizzRouter.get("/:index",async function (request, response) {
-
+    if(!await checkToken()){
+        console.log("noAcces");
+        return
+    }
     let allQuizzes = await readJsonFile(allQuizPath)
 
     const index: number = parseInt(request.params.index);
@@ -31,7 +42,10 @@ quizzRouter.get("/:index",async function (request, response) {
 })
 
 quizzRouter.post("/", async function (request, response) {
-    
+    if(!await checkToken()){
+        console.log("noAcces");
+        return
+    }
     let allQuizzes:Quiz[]|undefined= await readJsonFile(allQuizPath)
     if(allQuizzes!=undefined){
         const data: Quiz = request.body.data
@@ -45,7 +59,10 @@ quizzRouter.post("/", async function (request, response) {
 });
 
 quizzRouter.delete("/:index",async function (request, response) {
-
+    if(!await checkToken()){
+        console.log("noAcces");
+        return
+    }
     let allQuizzes:Quiz[]|undefined=await readJsonFile(allQuizPath)
 
     const index: number = parseInt(request.params.index);
@@ -65,7 +82,11 @@ quizzRouter.delete("/",function (request, response) {
     response.sendStatus(StatusCodes.NO_CONTENT);
 })
 
-
+async function checkToken() {
+    let response = await(await fetch('http://localhost:3050/verify/compareToken')).text()
+    if(response==="OK")return true
+    return false
+}
 
 async function readJsonFile(path:string){
     try{
