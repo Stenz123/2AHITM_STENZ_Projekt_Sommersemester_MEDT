@@ -1,9 +1,11 @@
+import cookieParser from "cookie-parser"
 import cors from "cors"
 import express from "express"
 import { adminRouter } from "./admin.js"
 
 const app = express()
 
+app.use(cookieParser())
 app.use(cors())
 app.use(express.json())
 

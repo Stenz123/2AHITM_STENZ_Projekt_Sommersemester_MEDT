@@ -26,7 +26,15 @@ adminRouter.post("/",async function(request,response){
 })
 
 adminRouter.get("/compareToken/",function(request,response){
-  response.send(token)
+  console.log(token);
+  
+  if(request.cookies.token1===token){
+    console.log("tedfbrsvf")
+    response.status(StatusCodes.OK).send("CORRECT")
+  }
+  response.status(StatusCodes.FORBIDDEN).send("Acces denied")
+  
+  
 })
 
 let token
