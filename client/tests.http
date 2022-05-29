@@ -4,3 +4,6 @@ content-type: application/json
 {
     "password":"ADMIN"
 }
+
+#####
+GET http://localhost:3050/verify/compareToken HTTP/1.

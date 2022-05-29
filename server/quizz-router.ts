@@ -3,34 +3,23 @@ import { readFile, writeFile } from "fs/promises";
 import { StatusCodes } from "http-status-codes"
 import { join } from "path";
 import { Quiz, Question, Answer } from "./interfaces";
+import fetch from 'node-fetch';
 
 export const quizzRouter = express.Router()
 
 const allQuizPath:string = "./storage/allQuizz.json"
 
 quizzRouter.get("/",async function(request,response){
-    if(!await checkToken()){
-        console.log("noAcces");
-        return  
-    }
     let cache =  await readJsonFile(allQuizPath)
     response.json(cache)
 })
 quizzRouter.get("/length",async function(request,response){
-    if(!await checkToken()){
-        console.log("noAcces");
-        return
-    }
     let cache: Quiz[]|undefined=  await readJsonFile(allQuizPath)
     if(cache==undefined) response.status(StatusCodes.OK).send("0")
     else response.status(StatusCodes.OK).send(String(cache.length))
 })
 
 quizzRouter.get("/:index",async function (request, response) {
-    if(!await checkToken()){
-        console.log("noAcces");
-        return
-    }
     let allQuizzes = await readJsonFile(allQuizPath)
 
     const index: number = parseInt(request.params.index);
@@ -44,6 +33,7 @@ quizzRouter.get("/:index",async function (request, response) {
 quizzRouter.post("/", async function (request, response) {
     if(!await checkToken()){
         console.log("noAcces");
+        response.sendStatus(StatusCodes.FORBIDDEN)
         return
     }
     let allQuizzes:Quiz[]|undefined= await readJsonFile(allQuizPath)
@@ -61,6 +51,7 @@ quizzRouter.post("/", async function (request, response) {
 quizzRouter.delete("/:index",async function (request, response) {
     if(!await checkToken()){
         console.log("noAcces");
+        response.sendStatus(StatusCodes.FORBIDDEN)
         return
     }
     let allQuizzes:Quiz[]|undefined=await readJsonFile(allQuizPath)
@@ -83,8 +74,9 @@ quizzRouter.delete("/",function (request, response) {
 })
 
 async function checkToken() {
-    let response = await(await fetch('http://localhost:3050/verify/compareToken')).text()
-    if(response==="OK")return true
+    let response = (await fetch('http://localhost:3050/verify/compareToken'))
+    let result:string=await response.text()
+    if(result==="OK")return true
     return false
 }
 

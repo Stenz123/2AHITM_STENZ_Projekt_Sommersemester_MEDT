@@ -14,22 +14,16 @@ adminRouter.post("/",async function(request,response){
   let password = request.body.password
   let user = request.body.user
 
-  if(await compare(password,adminHash)&&user==="admin"){
+  if(await compare(password,adminHash)&&user===adminUser){
     response.cookie("token1",token)
-    response.redirect("../adminCreate")
-    //.redirect("http://localhost:3050/adminCreate")
-    console.log("ok");
-    
+    response.sendStatus(StatusCodes.OK)
   }else{
     response.sendStatus(StatusCodes.OK)
   }
 })
 
 adminRouter.get("/compareToken/",function(request,response){
-  console.log(token);
-  
   if(request.cookies.token1===token){
-    console.log("tedfbrsvf")
     response.status(StatusCodes.OK).send("OK")
   }
   response.status(StatusCodes.FORBIDDEN).send("Acces denied")

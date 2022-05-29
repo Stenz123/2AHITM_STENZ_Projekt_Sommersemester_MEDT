@@ -16,9 +16,8 @@ submitButtonId.addEventListener("click",async function(){
       })
     })
     console.log(getCookie("token1"));
-    location.assign(`http://localhost:3050/adminCreaten`);
+    location.assign(`http://localhost:3050/adminCreate`);
 })
-
 
 function setCookie(name,value,days) {
     var expires = "";
@@ -39,7 +38,3 @@ function getCookie(name) {
     }
     return null;
 }
-document.getElementById("cookie").addEventListener("click",function(){
-  console.log(getCookie("token1"))
-  
-})
