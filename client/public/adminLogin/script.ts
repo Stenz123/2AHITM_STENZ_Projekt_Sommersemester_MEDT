@@ -5,6 +5,7 @@ let userId:HTMLInputElement = <HTMLInputElement>document.getElementById("user")
 submitButtonId.addEventListener("click",async function(){
   let password = passwordId.value
   let user = userId.value
+  document.cookie=""
   let response = await fetch("http://localhost:3050/verify/" , {
       method: "POST", 
       headers: {

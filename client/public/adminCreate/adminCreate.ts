@@ -2,7 +2,15 @@ import { Quiz, Question, Answer } from "./interfaces";
 
 start()
 async function start() {
-    let response = await (await fetch("http://localhost:3050/verify/compareToken")).text()
+    let response = await (await fetch("http://localhost:3050/verify/compareToken" , {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cookie:document.cookie
+      })
+    })).text()
     if(response!=="OK"){
         location.assign(`http://localhost:3050/adminLogin`);
     }

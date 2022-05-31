@@ -5,9 +5,201 @@
     
     --green-color:#50e669;
     --gray-color:#8f8f8f;
+
+    --standart-font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/***********************/
+html{
+    scroll-behavior: smooth;
+    scroll-snap-type: mandatory;
+    scroll-snap-type: y mandatory;
+}
+
+
+body{
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    
+}
+
+section{
+    scroll-snap-align: start;
+}
+
+/*HEADER*/
+header{
+    position: absolute;
+    width: 100vw;
+    top: 0px;
+    z-index: 10;
+    
+}
+#headerBox{
+    height: 12vh;
+    padding: .5vw;
+    background-color:rgba(255, 255, 255, 0.83);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(6px);
+}
+#headerBox h1{
+    font-size: 3rem;
+    color: #000;
+    font-family: var(--standart-font);
+    padding-left: 3%
+}
+#headerBox div{
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+#headerBox a{
+    font-family: var(--standart-font);
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background-color: #1e4870;
+    color: #fff;
+    padding: .8rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 50px;
+}
+#start{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    scroll-snap-align: start;
+}
+#top{
+    width: 100vw;
+    background-image: url(../img/cubes.png);
+    position: absolute;
+    top: 0px;
+    height: 100vh;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+}
+#bigText{
+    padding-top: 5%;
+    font-size: 70vh;
+    color: #fff;
+    margin: 0;
+    -webkit-text-stroke: .7rem #000;
+}
+#main, #mainBottom{
+    margin: 0;
+    padding: 0;
+    padding-top: 20vh;
+    padding-bottom: 10vh;
+    width: 100vw;
+    display: block;
+}
+.quizBox{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-bottom: 15vh;
+    width: 94vw;
+    background-color: #f0eeeb;
+}
+.blackBox{
+    width: 99%;
+    background-color: #1e4870;
+    padding: 1vh;
+    padding-bottom: 4vh;
+    padding-right: 1%;
+}
+.blackBox h2, .whiteBox h2{
+    color: #fff;
+    margin: 0;
+    font-size: 4rem;
+    font-family: var(--standart-font);
+}
+.blackBox p{
+    color: #fff;
+    text-align: right;
+    font-family: var(--standart-font);
+    font-size: 1.5rem;
+    margin-top: 10%;
+    padding-left: 20%;
+}
+#mainBottom .blackBox p{
+    text-align: left;
+    padding: 0;
+    margin-left: 1%;
+    margin-right: 20%;
+}
+#mainBottom .blackBox h2{
+    text-align: right;
+}
+.whiteBox{
+    padding: 5%;
+    padding-top: 1%;
+    display: block;
+}
+#mainBottom .blackBox{
+    background-color: #cc8c4c;
+}
+#mainBottom button{
+    background-color: #bc5c0c;
+}
+
+
+.whiteBox h2{
+    color: #000;
+    font-size: 5rem;
+    text-align: center;
+}
+.whiteBox p{
+    color: #000;
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+}
+.whiteBox button{
+    display: block;
+    width: 70%;
+    font-family: var(--standart-font);
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    background-color: #5798ae   ;
+    border: none;
+    color: #fff;
+    padding: .8rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 50px;
+}
+#footer{
+    background-color: var(--main-background-color);
+    padding: 2%;
+}
+#footer a,#footer p{
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+#footer a:hover{
+    text-decoration: underline;
+}
+
+/***********************
 #dailyQuizBox, #challangeFriendsBox{
     background-color: var(--main-background-color);
     width: 96%;
@@ -16,7 +208,7 @@
     display: flex;
     border-radius: 5px;
 }
-/**Left**/
+/**Left**
 #dailyQuizBoxLeft{
     background-image: url("../img/quizBackground.jpg");
     background-size: cover;
@@ -37,7 +229,7 @@
 #dailyQuizBoxLeft h3, #dailyQuizBoxLeft p{
     margin-bottom: 7%;
 }
-/**RIGHT**/
+/**RIGHT**
 #dailyQuizBoxRight{
     padding: 2%;
     width: 50%;
@@ -49,7 +241,7 @@
 #dailyQuizBoxRight > p{
     padding-bottom: 5%;
 }
-/**challangeFriendsBox**/
+/**challangeFriendsBox**
 #challangeFriendsBox{
     padding: 3%;
     display: block;
@@ -66,7 +258,7 @@
 }
 
 
-/**UserCard**/
+/**UserCard**
 .userCard{
     height: 15%;
     display: flex;

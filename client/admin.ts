@@ -2,6 +2,7 @@ import express from "express";
 import {compare, hash} from 'bcrypt'
 import { StatusCodes } from "http-status-codes";
 import { TokenBase, TokenGenerator } from "ts-token-generator";
+import { nextTick } from "process";
 
 
 const saltRounds = 10
@@ -10,21 +11,26 @@ const adminUser ="admin"
 
 export const adminRouter = express.Router()
 
-adminRouter.post("/",async function(request,response){
+adminRouter.post("/",async function(request,response, next){
   let password = request.body.password
   let user = request.body.user
 
   if(await compare(password,adminHash)&&user===adminUser){
-    response.cookie("token1",token)
-    response.sendStatus(StatusCodes.OK)
+    response.cookie('token1', token)
+    next()
   }else{
-    response.sendStatus(StatusCodes.OK)
+    next()
   }
 })
 
-adminRouter.get("/compareToken/",function(request,response){
-  if(request.cookies.token1===token){
+adminRouter.post("/compareToken/",function(request,response){
+  let token1=request.body.cookie
+  token1=token1.substring(7)
+  if(token1===token){
+    console.log("OK");
+    
     response.status(StatusCodes.OK).send("OK")
+    return
   }
   response.status(StatusCodes.FORBIDDEN).send("Acces denied")
 })
