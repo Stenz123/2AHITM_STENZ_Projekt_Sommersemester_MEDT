@@ -31,11 +31,6 @@ quizzRouter.get("/:index",async function (request, response) {
 })
 
 quizzRouter.post("/", async function (request, response) {
-    if(!await checkToken()){
-        console.log("noAcces");
-        response.sendStatus(StatusCodes.FORBIDDEN)
-        return
-    }
     let allQuizzes:Quiz[]|undefined= await readJsonFile(allQuizPath)
     if(allQuizzes!=undefined){
         const data: Quiz = request.body.data
@@ -49,11 +44,6 @@ quizzRouter.post("/", async function (request, response) {
 });
 
 quizzRouter.delete("/:index",async function (request, response) {
-    if(!await checkToken()){
-        console.log("noAcces");
-        response.sendStatus(StatusCodes.FORBIDDEN)
-        return
-    }
     let allQuizzes:Quiz[]|undefined=await readJsonFile(allQuizPath)
 
     const index: number = parseInt(request.params.index);
@@ -73,12 +63,6 @@ quizzRouter.delete("/",function (request, response) {
     response.sendStatus(StatusCodes.NO_CONTENT);
 })
 
-async function checkToken() {
-    let response = (await fetch('http://localhost:3050/verify/compareToken'))
-    let result:string=await response.text()
-    if(result==="OK")return true
-    return false
-}
 
 async function readJsonFile(path:string){
     try{

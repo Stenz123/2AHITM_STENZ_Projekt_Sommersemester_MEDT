@@ -1,12 +1,78 @@
+:root {
+    --main-background-color:#ededed;
+    --accent-color:#639aff;
+    --accent-color-ligt:#82aeff;
+    
+    --green-color:#50e669;
+    --gray-color:#8f8f8f;
+
+    --standart-font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html{
+    padding: 0;
+}
 body{
+    height: 100vh;
     margin: 0;
     padding: 0;
     display: block;
+    background-image: url(../img/cubes.png);
+    overflow: hidden;
+}
+#blackBox{
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0eeee5c;
+    z-index: -2;
 }
 form{
+    z-index: 10;
+    margin-top: 10vh;
     margin-left: auto;
     margin-right: auto;
     background-color: #f0eeeb;
-    width: 50%;
+    width: 25vw;
     height: 70vh;
+    padding: 4vh 2vw 5vh 2vw;
+}
+h2{
+    color: #000;
+    font-size: 3em;
+    font-family: var(--standart-font);
+    text-align: center;
+}
+input{
+    width: 91%;
+    background-color: #fff;
+    font-size: 1.5rem;
+    color: #000;
+    padding: 2%;
+    padding-left: 3%;
+    margin: 2%;
+    height: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid #000;
+    margin-bottom: 5%
+}
+a{
+    color: #000;
+    font-size: 1.6rem;
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: var(--standart-font);
+}
+#submitButton{
+    font-family: var(--standart-font);
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background-color: #1e4870;
+    color: #fff;
+    padding: .8rem;
+    margin-top: 15%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 50px;
 }

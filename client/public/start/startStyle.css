@@ -13,8 +13,10 @@ html{
     scroll-behavior: smooth;
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
+    width: 100vw;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
-
 
 body{
     padding: 0;
@@ -56,7 +58,11 @@ header{
     display: flex;
     align-items: center;
 }
-#headerBox a{
+#headerBox #quizzl{
+    color: #000;
+    text-decoration: none;
+}
+#headerBox #headerButton{
     font-family: var(--standart-font);
     text-align: center;
     font-size: 1.5rem;

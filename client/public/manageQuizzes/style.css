@@ -1,0 +1,39 @@
+:root {
+    --standart-font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html{
+    width: 100vw;
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+header{
+    position: absolute;
+    width: 100vw;
+    top: 0px;
+    z-index: 10;
+    
+}
+#headerBox{
+    height: 12vh;
+    padding: .5vw;
+    background-color:#1e4870;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(6px);
+}
+#headerBox h1{
+    font-size: 3rem;
+    color: #fff;
+    font-family: var(--standart-font);
+    padding-left: 3%;
+    padding-right: 2%;
+}
+#headerBox a{
+    color: #fff;
+    text-decoration: none;
+}

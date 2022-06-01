@@ -17,15 +17,20 @@ adminRouter.post("/",async function(request,response, next){
 
   if(await compare(password,adminHash)&&user===adminUser){
     response.cookie('token1', token)
-    next()
+    response.send()
   }else{
-    next()
+    response.send()
   }
 })
 
-adminRouter.post("/compareToken/",function(request,response){
-  let token1=request.body.cookie
-  token1=token1.substring(7)
+adminRouter.get("/compareToken/",function(request,response){
+  let token1=request.cookies.token1
+  console.log("-------");
+  
+  console.log(token1)
+  console.log(token);
+  
+  //token1=token1.substring(7)
   if(token1===token){
     console.log("OK");
     

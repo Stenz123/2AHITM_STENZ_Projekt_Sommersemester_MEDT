@@ -2,15 +2,7 @@ import { Quiz, Question, Answer } from "./interfaces";
 
 start()
 async function start() {
-    let response = await (await fetch("http://localhost:3050/verify/compareToken" , {
-      method: "POST", 
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        cookie:document.cookie
-      })
-    })).text()
+    let response:string = await (await fetch("http://localhost:3050/verify/compareToken")).text()
     if(response!=="OK"){
         location.assign(`http://localhost:3050/adminLogin`);
     }
@@ -19,9 +11,6 @@ async function start() {
 const QUIZ_SAVE_DIRECTORY:string = "../quizzes/quizzes.json"
 const MAX_QUESTIONS:number = 4
 
-console.log("start");
-
-
 let container = <HTMLDivElement> document.getElementById("quizz")
 let buttons = <HTMLDivElement> document.getElementById("buttonsQuiz")
 let currentQuiz:Quiz 
@@ -29,6 +18,7 @@ let currentQuiz:Quiz
 document.getElementById("newQuizButtnon").addEventListener("click",newQuiz)
 
 function newQuiz(){
+    document.getElementById("quizNameH2").innerHTML=""
     container = <HTMLDivElement> document.getElementById("quizz")
     let quizName:string = (<HTMLInputElement> document.getElementById("quizName")).value
 
@@ -42,8 +32,8 @@ function newQuiz(){
             <h1>${quizName}</h1>
         `
         buttons.innerHTML=`
-            <div class="button" id="submitQuiz">Submit Quiz</div>
             <div class="button" id="newQuestion">New Question</div>
+            <div class="button" id="submitQuiz">Submit Quiz</div>
         `
         newQuestion	()
         document.getElementById("submitQuiz").addEventListener("click",submitQuiz)
@@ -72,6 +62,14 @@ function updateNumberOfQuestions(thisObject:HTMLSelectElement){
 function newQuestion(){
     container.innerHTML+=`
             <div class="currentQuestion">
+                <div class="buttonsQuestion">
+                    <select class="dropDown" name="Number of questions">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4" selected>4</option>
+                    </select>
+                    <div class="deleteButton">X</div>
+                </div>
                 <div class="answers">
                     <input class="questionName" type="text" placeholder="Question">
                     <div class="answer">
@@ -90,14 +88,6 @@ function newQuestion(){
                         <input class="questionText" type="text" placeholder="answer">
                         <input class="questionCheckBox" type="checkBox">
                     </div>    
-                </div>
-                <div class="buttonsQuestion">
-                    <select class="dropDown" name="Number of questions">
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4" selected>4</option>
-                    </select>
-                    <div class="deleteButton button">X</div>
                 </div>   
             </div>
             `
@@ -112,12 +102,12 @@ function newQuestion(){
 }
 
 function deleteQuestion(thisObject: Element){
-    console.log(thisObject.parentElement.parentElement);
-    
     thisObject.parentElement.parentElement.remove()
 }
 
 async function submitQuiz(){
+    let isExecuted = confirm("Are you sure to execute this action?");
+    if(!isExecuted)return
     let questions:HTMLCollection=(<HTMLCollection>document.getElementsByClassName("currentQuestion"))
     for(let i = 0; i<questions.length;i++){
         let question:Question={
@@ -143,7 +133,8 @@ async function submitQuiz(){
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            data:currentQuiz
+            data:currentQuiz,
         })
     })
+    location.assign("http://localhost:3050/adminStart")
 }

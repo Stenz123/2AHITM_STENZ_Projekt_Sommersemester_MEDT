@@ -17,7 +17,7 @@ submitButtonId.addEventListener("click",async function(){
       })
     })
     console.log(getCookie("token1"));
-    location.assign(`http://localhost:3050/adminCreate`);
+    location.assign(`http://localhost:3050/adminStart`);
 })
 
 function setCookie(name,value,days) {
