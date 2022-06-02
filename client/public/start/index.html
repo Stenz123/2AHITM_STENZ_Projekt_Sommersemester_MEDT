@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../generalStyle.css">
     <link rel="stylesheet" href="./startStyle.css">
-    <script defer src="start.js"></script>
+    <script defer src="start.js" type="module"></script>
     <title>Quiz</title>
 </head>
 <body>
     <header>
         <div id="headerBox">
             <h1><a id="quizzl" href="../start/index.html">QUIZZL</a></h1>
-            <div><a href="#quizBox" id="headerButton">START NOW</a></div>
+            <div><a href="#main" id="headerButton">START NOW</a></div>
         </div>
     </header>
     <section id="start">
@@ -23,26 +23,26 @@
     <section id="main">
         <div class="quizBox">
             <div class="blackBox">
-                <h2>Daly Quiz</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus iusto voluptatem impedit et! Nihil nesciunt reprehenderit obcaecati illo facere modi, mollitia doloribus dolore omnis enim distinctio vitae sit labore accusamus fuga pariatur accusantium porro natus officiis dolorum dolor aliquam voluptas tempora unde? Dolorum ea, enim corporis illo quae nulla sint!.</p>
+                <h2>Daily Quiz</h2>
+                <p>Hier werden täglich neue Quizzes von unseren hochgradig akademisiert ausgebildeten Quizzologen hinzugefügt. Durch jahrzente lange erfarung unseres Teams, könne wir euch das besten Quiz erlebniss anbieten. Quizzl ist die führende firma in der Quizologie, und arbeitet daher mit Firmen wie Amazom, Apple und Tesla zusammen.</p>
             </div>
             <div class="whiteBox">
-                <h2>Flag Quiz</h2>
-                <p>5 Questions | Ca. 1 min</p>
-                <button id="startDalyQuiz">Start Now</button>
+                <h2 id="dailyQuizTitle">Flag Quiz</h2>
+                <p id="dalyQuizDescription">5 Questions | Ca. 1 min</p>
+                <button id="startDailyQuiz" onclick="location.assign('http://localhost:3050/loadQuiz/?index=5')">Start Now</button>
             </div>
         </div>
     </section>
     <section id="mainBottom">
         <div class="quizBox">
             <div class="whiteBox">
-                <h2>Flag Quiz</h2>
-                <p>5 Questions | Ca. 1 min</p>
+                <h2 id="quizTitle">Flag Quiz</h2>
+                <p id="quizDescription">5 Questions | Ca. 1 min</p>
                 <button id="startQuiz">Start Now</button>
             </div>
             <div class="blackBox">
                 <h2>Play Now</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus iusto voluptatem impedit et! Nihil nesciunt reprehenderit obcaecati illo facere modi, mollitia doloribus dolore omnis enim distinctio vitae sit labore accusamus fuga pariatur accusantium porro natus officiis dolorum dolor aliquam voluptas tempora unde? Dolorum ea, enim corporis illo quae nulla sint!.</p>
+                <p>Hier bei Quizzl kümmern wir uns um unsere Kunden und Kundinnen, daher stellen wir mit dieser funktion High Quality Quizzes unseren Kunden und Kundinnen zur verfügung. Um diese hochwertigkeit gewährleisten zu können werden unsere Quizzes wissenschaftlich von der Firma Efko getestet. Mit der zussammenarbeit mit dem Essiggurkal produzenten schmecken die Essiggurkal nicht nur besser, sondern wir können unseren Qualitätsstadart einhalten.</p>
             </div>
         </div>
     </section>

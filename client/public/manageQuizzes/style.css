@@ -37,3 +37,54 @@ header{
     color: #fff;
     text-decoration: none;
 }
+#quizzes{
+    background-color: #ededed;
+    margin: 5% 15%;
+    padding: 2%;
+}
+#quizzes h2{
+    font-size: 2rem;
+    font-family: var(--standart-font);
+    color: #1e4870;
+}
+.quizzesHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.3rem;
+}
+.deleteButton{
+    font-family: var(--standart-font);
+    font-size: 1.5rem;
+}
+h3{
+    border-top: 1px solid #1e48701b;  
+    margin-top: 1%;
+    padding-top: 1%;
+    margin-bottom: 0;
+    font-family: var(--standart-font);
+    font-size: 1.2rem;
+    color: #000;
+}
+.quizzes :nth-child(2){
+    border-top: none;
+}
+.answers{
+    font-family: var(--standart-font);
+    display: flex;
+}
+.answers p{
+    margin-right: 2%;
+}
+#back{
+    width: 100%;
+    font-size: 1.5rem;
+    color: #000;
+    text-decoration: underline;
+    text-align: right;
+    top: 15vh;
+    position: absolute;
+    text-align: left;
+    padding-left: 2%;
+    font-family: var(--standart-font);
+}

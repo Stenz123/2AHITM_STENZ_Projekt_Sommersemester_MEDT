@@ -1,7 +1,15 @@
+:root {
+    --standart-font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #1e4971;
+    height: 100vh;
+    overflow-y: hidden;
+}
 #quiz{
-    background-color: aqua;
+    background-color: #ededed;
     margin: 3%;
-    height: 50vh;
+    height: 70vh;
     padding: 1%;
     padding-top: 0;
 }
@@ -10,11 +18,102 @@
     grid-template-columns: auto auto;
 }
 #grid div{
-    background-color: violet;
     padding: 2%;
     margin: 2%;
-    border: #000 2px solid;
+}
+h1, h2{
+    padding-top:2%;
+    margin: 1.5%;
+    font-family: var(--standart-font);
 }
 h1{
+    margin-left: 4%;
+    font-size: 3rem;
+    color: #fff;
+}
+h2{
+    font-size: 3rem;
+}
+.answer:nth-child(1){
+    background-color: #e11b3e;
+    border-right: 5px solid #c5213f;
+    border-bottom: 5px solid #c5213f;
+}
+.answer:nth-child(2){
+    background-color: #1467cf;
+    border-right: 5px solid #1a5daf;
+    border-bottom: 5px solid #1a5daf;
+}
+.answer:nth-child(3){
+    background-color: #d69e01;
+    border-right: 5px solid #b48709;
+    border-bottom: 5px solid #b48709;
+}
+.answer:nth-child(4){
+    background-color: #28880d;
+    border-right: 5px solid #216c0c;
+    border-bottom: 5px solid #216c0c;
+}
+.answer p{
+    color: #fff;
+    font-size: 2rem;
+}
+#next{
+    background-color: #e11b3e;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    font-family: var(--standart-font);
+    margin: 1%;
+    padding: 1%;
+    width: 15%;
+}
+#background{
+    background-image: url(../img/cubes.png);
+    background-size: cover;
+    height: 100vh;
+    width: 90vw;
+    position: absolute;
+    top: 0px;
+    padding: 5vw;
+    display: flex;
+    justify-content: center;
+}
+#white{
+    background-color: rgba(255, 255, 255, 0.241);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0px;
+    z-index: 5;
+}
+#innerBox{
+    z-index: 10;
+    background-color: #ededed;
+    width: 50%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 80px;
+}
+#background p{
+    text-align: center;
+    color: #fff;
+    font-size: 15rem;
     margin: 0;
+    -webkit-text-stroke: .5rem #000;
+}
+#returnHome{
+    background-color: #bc5c0c;
+    border-radius: 100px;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    font-family: var(--standart-font);
+    margin: 1%;
+    padding: 1%;
+    width: 50%;
 }

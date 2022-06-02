@@ -1,5 +1,13 @@
 import { Quiz } from "../adminCreate/interfaces";
 
+start()
+async function start() {
+    let response:string = await (await fetch("http://localhost:3050/verify/compareToken")).text()
+    if(response!=="OK"){
+        location.assign(`http://localhost:3050/adminLogin`);
+    }
+}
+
 let quizBox = document.getElementById("quizzes")
 displayAll()
 async function displayAll(){
@@ -7,29 +15,35 @@ async function displayAll(){
     quizzes.forEach(Element => {
         quizBox.innerHTML+=`
             <div class="quizzes">
-                <h2>${Element.quizName}</h2>
-                <button class="deleteButton">X</button>
+                <div class="quizzesHeader">
+                    <h2>${Element.quizName}</h2>
+                    <div class="deleteButton">X</div>
+                </div>
             </div>
         `
         let quizzeClass = document.getElementsByClassName("quizzes")
         
         Element.questions.forEach(i => {
-            quizzeClass[quizzeClass.length-1].innerHTML+=`<p>${i.question}</p><p></p>`
-            let pTag= document.getElementsByTagName("p")[document.getElementsByTagName("p").length-1]
+            quizzeClass[quizzeClass.length-1].innerHTML+=`<h3>${i.question}</h3><div class="answers"></div>`
+            let lastDivTag= document.getElementsByTagName("div")[document.getElementsByTagName("div").length-1]
+            
             i.answers.forEach(j => {
-                pTag.innerHTML+=`${j.text} ${j.isCorrect} | `
+                let color = j.isCorrect ? "green" : "red"
+                lastDivTag.innerHTML+=`<p style="color:${color}">${j.text}</p>`
             });
             
         })
-        let removeButtons = document.getElementsByClassName("deleteButton")
-        for (let i = 0; i < removeButtons.length; i++) {
-            removeButtons[i].addEventListener('click', async function(){
-                await fetchRestEndpoint(`http://localhost:3000/api/quizz/${i}`, "DELETE")
-                location.reload()
-            });
-        }
-        console.log(Element);
-    }); 
+        quizBox.innerHTML+=`<hr>`
+    })
+    let removeButtons = document.getElementsByClassName("deleteButton")
+    for (let i = 0; i < removeButtons.length; i++) {
+        removeButtons[i].addEventListener('click', async function(){
+            let isExecuted = confirm("Are you sure to delete this Object?");
+            if(!isExecuted)return
+            await fetchRestEndpoint(`http://localhost:3000/api/quizz/${i}`, "DELETE")
+            location.reload()
+        });
+    }
 }
 
 async function fetchRestEndpoint(route: string, method: "GET" |"POST" |"PUT" |"DELETE", data?: object): Promise<any> {

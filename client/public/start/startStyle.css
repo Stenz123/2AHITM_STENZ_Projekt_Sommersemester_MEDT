@@ -10,12 +10,10 @@
 }
 
 html{
-    scroll-behavior: smooth;
-    scroll-snap-type: mandatory;
-    scroll-snap-type: y mandatory;
     width: 100vw;
-    overflow-x: hidden;
     max-width: 100vw;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -23,10 +21,12 @@ body{
     margin: 0;
     width: 100vw;
     overflow-x: hidden;
-    
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
 
 section{
+    
     scroll-snap-align: start;
 }
 
@@ -79,7 +79,6 @@ header{
     margin: 0;
     padding: 0;
     overflow-y: hidden;
-    scroll-snap-align: start;
 }
 #top{
     width: 100vw;

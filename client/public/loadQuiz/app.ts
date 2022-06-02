@@ -27,8 +27,8 @@ async function load(){
   }
   
   document.body.innerHTML=`
+  <h1>${json.quizName}</h1>
   <div id="quiz">
-    <h1>${json.quizName}</h1>
       <div>
         <h2>${json.questions[questionCounter].question}</h2>
         <div id="grid"></div>
@@ -48,30 +48,30 @@ async function load(){
 }
 
 
-function nextQuestionScreen(index:number, json:Quiz){
-  console.log("segxdrcfhvbkl");
-  
+function nextQuestionScreen(index:number, json:Quiz){  
   for(let i = 0; i < json.questions[questionCounter].answers.length; i++){
     if(json.questions[questionCounter].answers[i].isCorrect){
-      (<HTMLDivElement>document.getElementsByClassName("answer")[i]).style.backgroundColor="#86fc0f"
+      (<HTMLDivElement>document.getElementsByClassName("answer")[i]).style.backgroundColor="#4f9133";
+      (<HTMLDivElement>document.getElementsByClassName("answer")[i]).style.borderColor="#ededed";
     }else{
-      (<HTMLDivElement>document.getElementsByClassName("answer")[i]).style.backgroundColor="#ad1515"
+      (<HTMLDivElement>document.getElementsByClassName("answer")[i]).style.backgroundColor="#ad1717";
+      (<HTMLDivElement>document.getElementsByClassName("answer")[i]).style.borderColor="#ededed";
     }
   }
+  document.getElementById("quiz").innerHTML+=`<button id="next">Next</button>`
   if(json.questions[questionCounter].answers[index].isCorrect){
     score++
-    document.getElementById("quiz").style.background="#29ad15"
-  }else document.getElementById("quiz").style.background="#d11137"
-  document.getElementById("quiz").innerHTML+=`<button id="next">Next</button>`
+    document.getElementById("next").style.backgroundColor="#4f9133";
+  }else document.getElementById("next").style.backgroundColor="#ad1717";
   
   if(questionCounter<json.questions.length-1){
     questionCounter++
     document.getElementById("next").addEventListener("click",load)
-  }
-  else {
+  }  else {
     document.getElementById("next").addEventListener("click",function(){
       score=10*score/json.questions.length
-      document.body.innerHTML=`<p>Score: ${score}/10</p><button id="returnHome">Home</button>`
+      document.body.innerHTML=`<div id="background"><div id="white"></div><div id="innerBox"></div></div>`
+      document.getElementById("innerBox").innerHTML=`<p>${Math.floor(score*10)/10}/10</p><button id="returnHome">Home</button>`
       document.getElementById("returnHome").addEventListener("click",function() {
         location.assign(`http://${START_URL}`)
       })
