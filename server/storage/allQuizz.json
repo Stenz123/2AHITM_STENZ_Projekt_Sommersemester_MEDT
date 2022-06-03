@@ -274,32 +274,6 @@
 						"isCorrect": false
 					}
 				]
-			}
-		]
-	},
-	{
-		"quizName": "Number Quiz",
-		"questions": [
-			{
-				"question": "",
-				"answers": [
-					{
-						"text": "",
-						"isCorrect": false
-					},
-					{
-						"text": "",
-						"isCorrect": false
-					},
-					{
-						"text": "",
-						"isCorrect": false
-					},
-					{
-						"text": "",
-						"isCorrect": false
-					}
-				]
 			},
 			{
 				"question": "1+1",
@@ -339,6 +313,100 @@
 					},
 					{
 						"text": "1850",
+						"isCorrect": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "Essen Quiz",
+		"questions": [
+			{
+				"question": "Wie viele Spagetti Sorten gibt es",
+				"answers": [
+					{
+						"text": "1",
+						"isCorrect": false
+					},
+					{
+						"text": "400",
+						"isCorrect": false
+					},
+					{
+						"text": "3000",
+						"isCorrect": false
+					},
+					{
+						"text": "600",
+						"isCorrect": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"quizName": "Daly Quiz",
+		"questions": [
+			{
+				"question": "Wie hoch ist der Mount Everest",
+				"answers": [
+					{
+						"text": "8849m",
+						"isCorrect": true
+					},
+					{
+						"text": "1654865132162cm",
+						"isCorrect": false
+					},
+					{
+						"text": "9201m",
+						"isCorrect": false
+					},
+					{
+						"text": "blau",
+						"isCorrect": false
+					}
+				]
+			},
+			{
+				"question": "Von wo Atem Schildkröten?",
+				"answers": [
+					{
+						"text": "Mund",
+						"isCorrect": false
+					},
+					{
+						"text": "Gesäß",
+						"isCorrect": true
+					},
+					{
+						"text": "Haut",
+						"isCorrect": false
+					},
+					{
+						"text": "Augen",
+						"isCorrect": false
+					}
+				]
+			},
+			{
+				"question": "Welche Sounds machen Schildkröten?",
+				"answers": [
+					{
+						"text": "Häää",
+						"isCorrect": false
+					},
+					{
+						"text": "Ahhh",
+						"isCorrect": true
+					},
+					{
+						"text": "NI",
+						"isCorrect": false
+					},
+					{
+						"text": "UWU",
 						"isCorrect": false
 					}
 				]

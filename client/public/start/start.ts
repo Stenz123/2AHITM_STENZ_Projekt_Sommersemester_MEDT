@@ -6,8 +6,8 @@ const LOAD_QUIZ_URL:string = "localhost:3050/loadQuiz"
 setup()
 async function setup(){
     let data =await fetch(`http://localhost:3000/api/quizz/length`)
-    let max = Number(await data.text())-1
-    let random = Math.floor(Math.random()*max)
+    let max = Number(await data.text())
+    let random = Math.floor(Math.random()*max)+1
     document.getElementById("startQuiz").setAttribute("onclick",`location.assign('http://localhost:3050/loadQuiz/?index=${random}')`)
     data = await fetch(`http://localhost:3000/api/quizz/${random}`)
     let quiz:Quiz = await data.json()
@@ -16,8 +16,6 @@ async function setup(){
 
     data = await fetch(`http://localhost:3000/api/quizz/day`)
     let number = (await data.text())
-    
-    console.log(number);
     
     data = await fetch(`http://localhost:3000/api/quizz/${number}`)
     quiz = await data.json()

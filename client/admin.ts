@@ -25,10 +25,6 @@ adminRouter.post("/",async function(request,response, next){
 
 adminRouter.get("/compareToken/",function(request,response){
   let token1=request.cookies.token1
-  console.log("-------");
-  
-  console.log(token1)
-  console.log(token);
   
   //token1=token1.substring(7)
   if(token1===token){

@@ -18,6 +18,10 @@ quizzRouter.get("/length",async function(request,response){
     if(cache==undefined) response.status(StatusCodes.OK).send("0")
     else response.status(StatusCodes.OK).send(String(cache.length))
 })
+quizzRouter.get("/day",function(request,response){
+    response.status(StatusCodes.OK).send(quizOfTheDay.toString())
+})
+
 
 quizzRouter.get("/:index",async function (request, response) {
     let allQuizzes = await readJsonFile(allQuizPath)
@@ -70,4 +74,16 @@ async function readJsonFile(path:string){
         let result : Quiz[]= JSON.parse(await readFile(completePath,"utf-8"))
         return result
     }catch{console.error()}
+}
+
+let quizOfTheDay:number = 0
+
+newQuizOfTheDay()
+setInterval(newQuizOfTheDay,1000*60*60*24)
+
+async function newQuizOfTheDay(){
+    let length = await fetch(`http://localhost:3000/api/quizz/length`)
+    let max = Number(await length.text())
+    let random:number = Math.floor(Math.random()*(max))
+    quizOfTheDay =random
 }
